@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <cmath>
 #include <vector>
-#include "spline.h"
+#include "spline.hpp"
 
 template<class Function>
 double deriv1(const Function& f, double x)
@@ -42,15 +42,15 @@ int main(int argc, char** argv)
     Y[3]=1.1;
     Y[4]=0.9;
 
-    tk::spline s;
+    tools::spline s;
     // set_boundary() is optional and if omitted, natural boundary condition,
     // f''(a)=f''(b)=0, will be used
     // note, if natural boundary conditions are not used then extrapolation
     // will be a quadratic function, unless the last argument is set to true,
     // which forces linear extrapolation, but this will violate second order
     // differentiability at the endpoint
-    s.set_boundary(tk::spline::second_deriv, 0.0,
-                   tk::spline::first_deriv, -2.0, false);
+    s.set_boundary(tools::spline::second_deriv, 0.0,
+                   tools::spline::first_deriv, -2.0, false);
     s.set_points(X,Y);
 
     for(size_t i=0; i<X.size(); i++) {

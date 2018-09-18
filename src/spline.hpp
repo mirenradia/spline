@@ -1,5 +1,5 @@
 /*
- * spline.h
+ * spline.hpp
  *
  * simple cubic spline interpolation library without external
  * dependencies
@@ -24,8 +24,8 @@
  */
 
 
-#ifndef TK_SPLINE_H
-#define TK_SPLINE_H
+#ifndef TOOLS_SPLINE_HPP
+#define TOOLS_SPLINE_HPP
 
 #include <cstdio>
 #include <cassert>
@@ -33,12 +33,7 @@
 #include <algorithm>
 
 
-// unnamed namespace only because the implementation is in this
-// header file and we don't want to export symbols to the obj files
-namespace
-{
-
-namespace tk
+namespace tools
 {
 
 // band matrix solver
@@ -456,9 +451,6 @@ double spline::deriv(int order, double x) const
 
 
 
-} // namespace tk
+} // namespace tools
 
-
-} // namespace
-
-#endif /* TK_SPLINE_H */
+#endif /* TOOLS_SPLINE_HPP */

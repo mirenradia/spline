@@ -1,7 +1,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <vector>
-#include "spline.h"
+#include "spline.hpp"
 
 int main(int argc, char** argv)
 {
@@ -18,7 +18,7 @@ int main(int argc, char** argv)
     Y[3]=1.1;
     Y[4]=0.9;
 
-    tk::spline s;
+    tools::spline s;
     s.set_points(X,Y);    // currently it is required that X is already sorted
 
     double x=1.5;
