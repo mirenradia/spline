@@ -1,12 +1,14 @@
-#include <cstdio>
-#include <cstdlib>
+#include <iostream>
 #include <vector>
 #include "spline.hpp"
+
+template <class T>
+using array_t = std::vector<T>;
 
 int main(int argc, char** argv)
 {
 
-    std::vector<double> X(5), Y(5);
+    array_t<double> X(5), Y(5);
     X[0]=0.1;
     X[1]=0.4;
     X[2]=1.2;
@@ -18,12 +20,12 @@ int main(int argc, char** argv)
     Y[3]=1.1;
     Y[4]=0.9;
 
-    tools::spline s;
+    tools::spline<array_t> s;
     s.set_points(X,Y);    // currently it is required that X is already sorted
 
     double x=1.5;
 
-    printf("spline at %f is %f\n", x, s(x));
+    std::cout << "spline at " << x << " is " << s(x) << "\n";
 
-    return EXIT_SUCCESS;
+    return 0;
 }
