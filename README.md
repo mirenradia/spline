@@ -1,6 +1,9 @@
 ## spline
 c++ cubic spline library
 
+Forked from https://github.com/ttk592/spline and updated to modern C++ including
+templating to allow dynamic arrays other than std::vector.
+
 http://kluge.in-chemnitz.de/opensource/spline/
 
 It generates a piecewise polynomial function of degree 3 and is
@@ -20,7 +23,7 @@ int main(int argc, char** argv)
 {
     std::vector<double> X, Y;
     ...
-    tools::spline s;
+    tools::spline<std::vector> s;
     s.set_points(X,Y);    // X needs to be sorted, strictly increasing
     double value=s(1.5);  // interpolated value at 1.5
     ...
